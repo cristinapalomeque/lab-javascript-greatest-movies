@@ -91,6 +91,36 @@ dividir en 2 parts
 multiplicar 1hora x 60
 sumar eso a los minutos
 
+version Edu
+// BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
+function turnHoursToMinutes(moviesArray) {
+    let turnHoursToMinutes = [...moviesArray];
+    const result =  turnHoursToMinutes.map(movie => {
+        return {
+            title: movie.title,
+            year: movie.year,
+            director: movie.director,
+            duration: calc(movie.duration),
+            genre: movie.genre,
+            score: movie.score
+        }            
+    });
+    return result;
+}
+function calc(element) {
+  const hourInString = element;
+  const splitHour = hourInString.split(' ');
+  let hours = 0;
+  let minutes = 0;
+  if (splitHour[0]) {
+    hours = parseFloat(splitHour[0].match(/\d+/)[0]);
+  }
+  if (splitHour[1]) {
+    minutes = parseFloat(splitHour[1].match(/\d+/)[0]);
+  }
+  const sum = hours * 60 + minutes;
+  return sum;
+}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {} */
