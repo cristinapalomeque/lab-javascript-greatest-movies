@@ -91,6 +91,25 @@ dividir en 2 parts
 multiplicar 1hora x 60
 sumar eso a los minutos
 
+version Melisa
+function turnHoursToMinutes(moviesArray) {
+  return moviesArray.map((movie) => {
+    return { ...movie, duration: stringToMinutes(movie.duration) };
+  });
+}
+
+// str must to have the format '[x]h [x]min' or '[x]h' ("x" stands for a number)
+const stringToMinutes = (str) => {
+  const hours = Number(str.slice(0, str.indexOf("h")));
+  let min = 0;
+
+  if (str.length > 2) {
+    min = Number(str.slice(str.indexOf("h") + 1, str.indexOf("min")));
+  }
+
+  return hours * 60 + min;
+};
+
 version Edu
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
